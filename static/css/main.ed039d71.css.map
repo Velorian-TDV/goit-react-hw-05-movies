@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.ed039d71.css","mappings":"AAAA,EAGC,qBAAsB,CACtB,sCAAyC,CAHzC,QAAW,CACX,SAID","sources":["style/style.css"],"sourcesContent":["* {\r\n\tmargin: 0px;\r\n\tpadding: 0px;\r\n\tbox-sizing: border-box;\r\n\tfont-family: Arial, Helvetica, sans-serif;\r\n\t/* outline: 1px solid tomato; */\r\n}"],"names":[],"sourceRoot":""}
