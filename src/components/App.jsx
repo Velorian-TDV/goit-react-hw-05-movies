@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { Wrapper } from "./App.styled";
+import SharedLayout from "./SharedLayout/SharedLayout ";
 
 const HomePage = lazy(() => import("./Pages/HomePage/HomePage"));
 const Navbar = lazy(() => import("./Navbar/Navbar"));
@@ -13,17 +14,17 @@ export default function App() {
     return (
         <Wrapper>
             <Navbar />
-            <Suspense fallback={<div>Loading ...</div>}>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
+            <Routes>
+                <Route path="/" element={<SharedLayout />}>
+                    <Route index element={<HomePage />} />
                     <Route path="*" element={<Navigate to='/' />} />
-                    <Route path="/movies" element={<Movies />} />
-                    <Route path="/movies/:movieId" element={<Movie />}>
+                    <Route path="movies" element={<Movies />} />
+                    <Route path="movies/:movieId" element={<Movie />}>
                         <Route path="cast" element={<Cast />} />
                         <Route path="reviews" element={<Reviews />} />
                     </Route>
-                </Routes>
-            </Suspense>
+                </Route>
+            </Routes>
         </Wrapper>
     )
 }
