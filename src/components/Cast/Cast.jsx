@@ -8,13 +8,13 @@ export default function Cast() {
 
     useEffect(() => {
         themoviedbParser(`movie/${movieId}/credits?`)
-            .then(data => setActros(data))
+            .then(data => setActros(data.cast))
     }, [])
 
     return (
         <section className="actors">{
-            actors.cast === undefined ? null :
-                actors.cast.map(actor => {
+            actors.length === 0 ? <p className="err">Actor data not found</p> :
+                actors.map(actor => {
                     return (
                         <div key={actor.cast_id} className="actor_card">
                             {actor.profile_path === null ?
@@ -23,9 +23,9 @@ export default function Cast() {
                                 <img className="actor_avatar" src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} alt={actor.profile_path} />
                             }
                             <div>
-                            <p className="actor_name" >{actor.original_name}</p>
-                            <p>as</p>
-                            <p>{actor.character}</p>
+                                <p className="actor_name" >{actor.original_name}</p>
+                                <p>as</p>
+                                <p>{actor.character}</p>
                             </div>
                         </div>
                     )

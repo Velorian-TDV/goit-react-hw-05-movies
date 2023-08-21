@@ -219,6 +219,7 @@ export const Wrapper = styled.main`
     .actors{
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
         
         .actor_card{
             padding: 10px;
@@ -260,6 +261,7 @@ export const Wrapper = styled.main`
         }
     }
 
+    /* etc. */
     .not_found_page{
         display: flex;
         align-items: center;
@@ -270,4 +272,8 @@ export const Wrapper = styled.main`
         overflow: hidden;
     }
 
+    .err{
+        display: block;
+        width: 90vw;
+    }
 `

@@ -1,6 +1,6 @@
 import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from "react";
-import themoviedbParser from '../../services/MovieParser';
+import themoviedbParser from '../../../services/MovieParser';
 
 export default function Movie() {
     const { movieId } = useParams();
@@ -22,12 +22,15 @@ export default function Movie() {
                 </section>
 
                 <section className='poster_block'>
-                    {
-                        film.poster_path === null ?
-                            <img className="poster" src={`https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923`} alt={film.title} />
+                    <img
+                        className="poster"
+                        src={film.poster_path === null ?
+                            `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923`
                             :
-                            <img className="poster" src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`} alt={film.title} />
-                    }
+                            `https://image.tmdb.org/t/p/w200/${film.poster_path}`
+                        }
+                        alt={film.title}
+                    />
                 </section>
 
                 <section className='movie_description'>

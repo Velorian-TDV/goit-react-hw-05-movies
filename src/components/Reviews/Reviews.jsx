@@ -12,9 +12,8 @@ export default function Reviews() {
     }, [])
 
     return (
-
         <section className="reviews">{
-            reviews.length === 0 ? <p>No reviews</p> :
+            reviews.length === 0 ? <p className="err">No reviews</p> :
                 reviews.map(revie => {
                     return (
                         <div className="revie_block" key={revie.id}>
