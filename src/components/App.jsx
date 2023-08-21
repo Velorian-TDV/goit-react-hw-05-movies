@@ -17,7 +17,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<SharedLayout />}>
                     <Route index element={<HomePage />} />
-                    <Route path="*" element={<Navigate to='/' />} />
+                    <Route path="*" element={<Navigate to="/" />} />
                     <Route path="movies" element={<Movies />} />
                     <Route path="movies/:movieId" element={<Movie />}>
                         <Route path="cast" element={<Cast />} />
