@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Wrapper } from "./App.styled";
 
@@ -16,7 +16,7 @@ export default function App() {
             <Suspense fallback={<div>Loading ...</div>}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="*" element={<HomePage />} />
+                    <Route path="*" element={<Navigate to='/' />} />
                     <Route path="/movies" element={<Movies />} />
                     <Route path="/movies/:movieId" element={<Movie />}>
                         <Route path="cast" element={<Cast />} />
