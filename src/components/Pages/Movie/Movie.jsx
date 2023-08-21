@@ -1,5 +1,5 @@
 import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import themoviedbParser from '../../../services/MovieParser';
 
 export default function Movie() {
@@ -47,8 +47,10 @@ export default function Movie() {
                         <NavLink className='movie_button' to='reviews'>Reviews</NavLink>
                     </section>
                 </section>
-
-                <Outlet />
+                
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Outlet />
+                </ Suspense>
 
             </section >
     )
